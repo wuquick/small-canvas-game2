@@ -1,4 +1,4 @@
-import { GCanvas, Sprite } from "../canvas"
+import { GCanvas } from "../canvas"
 import { EMouseState, Position } from "../types";
 
 export class Gate {
@@ -63,4 +63,19 @@ export class Line {
   private endPin: Pin
 
   
+}
+
+
+export class Sprite {
+  position: Position
+  
+  constructor(position: Position) {
+    this.position = position;
+  }
+
+  draw(drawCallback: Function) {
+    GCanvas.ctx.save();
+    drawCallback();
+    GCanvas.ctx.restore();
+  }
 }
